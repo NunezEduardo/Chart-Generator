@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Estadísticas De Eduardo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+</head>
+<body>
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
+            <div class="container">
+                <a class="navbar-brand" href="#">Sistema de Estadísticas - desarrollado por Eduardo Núñez</a>
+            </div>
+        </nav>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">Entrada de Datos</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <label for="chartType" class="form-label">Tipo de Gráfica</label>
+                                <select class="form-select" id="chartType">
+                                    <option value="bar">Gráfica de Barras</option>
+                                    <option value="line">Gráfica de Líneas</option>
+                                    <option value="pie">Gráfica Circular</option>
+                                </select>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable">
+                                    <thead>
+                                        <tr>
+                                            <th>Etiqueta</th>
+                                            <th>Valor</th>
+                                            <th>Color</th>
+                                            <th>Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><input type="text" class="form-control" placeholder="Etiqueta"></td>
+                                            <td><input type="number" class="form-control" placeholder="Valor"></td>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="color-preview" style="width: 30px; height: 30px; border-radius: 4px; margin-right: 5px; cursor: pointer;"></div>
+                                                    <input type="color" class="color-input" style="display: none;">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-danger btn-sm delete-row">Eliminar</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <button class="btn btn-success" id="addRow">Agregar Fila</button>
+                            <br>
+                            <br>
+                            <button class="btn btn-primary" id="updateChart">Actualizar Gráfica</button>
+                            <br>
+                            <br>
+                            <button class="btn btn-secondary" id="downloadChart">Descargar JPG</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">Visualización</h5>
+                        </div>
+                        <div class="mb-3 mt-2">
+                            <input type="text" class="form-control" id="chartTitle" placeholder="Título de la gráfica">
+                        </div>
+                        <div class="mb-3">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" id="xAxisLabel" placeholder="Etiqueta del eje X">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" id="yAxisLabel" placeholder="Etiqueta del eje Y">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="chartCanvas"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
